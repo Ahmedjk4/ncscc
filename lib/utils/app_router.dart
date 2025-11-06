@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ncss_code_club/views/about_view.dart';
 import 'package:ncss_code_club/views/home_view.dart';
@@ -8,8 +9,35 @@ class AppRouter {
   static final GoRouter router = GoRouter(
     initialLocation: home,
     routes: [
-      GoRoute(path: home, builder: (context, state) => const HomeView()),
-      GoRoute(path: about, builder: (context, state) => const AboutView()),
+      GoRoute(
+        path: home,
+        pageBuilder: (context, state) => buildPageWithFadeTransition(
+          context: context,
+          state: state,
+          child: const HomeView(),
+        ),
+      ),
+      GoRoute(
+        path: about,
+        pageBuilder: (context, state) => buildPageWithFadeTransition(
+          context: context,
+          state: state,
+          child: const AboutView(),
+        ),
+      ),
     ],
+  );
+}
+
+CustomTransitionPage buildPageWithFadeTransition({
+  required BuildContext context,
+  required GoRouterState state,
+  required Widget child,
+}) {
+  return CustomTransitionPage<void>(
+    key: state.pageKey,
+    child: child,
+    transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+        FadeTransition(opacity: animation, child: child),
   );
 }

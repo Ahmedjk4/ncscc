@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:ncss_code_club/config/nav_items.dart';
 import 'package:ncss_code_club/utils/app_theme.dart';
 
@@ -120,7 +121,7 @@ class SharedAppBar extends StatelessWidget {
             children: [
               Text(
                 'New Cairo STEM',
-                style: TextStyle(
+                style: GoogleFonts.montserrat(
                   color: Colors.white,
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -128,7 +129,7 @@ class SharedAppBar extends StatelessWidget {
               ),
               Text(
                 'Code Club',
-                style: TextStyle(
+                style: GoogleFonts.montserrat(
                   color: Colors.amber[400],
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
@@ -264,7 +265,7 @@ class SharedAppDrawer extends StatelessWidget {
               const SizedBox(height: 12),
               Text(
                 'New Cairo STEM',
-                style: TextStyle(
+                style: GoogleFonts.montserrat(
                   color: Colors.white,
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -272,7 +273,7 @@ class SharedAppDrawer extends StatelessWidget {
               ),
               Text(
                 'Code Club',
-                style: TextStyle(
+                style: GoogleFonts.montserrat(
                   color: Colors.amber[400],
                   fontSize: 18,
                   fontWeight: FontWeight.w600,

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:ncss_code_club/components/shared_app_bar.dart';
 import 'package:ncss_code_club/config/nav_items.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ncss_code_club/utils/app_router.dart';
 
 class AboutView extends StatefulWidget {
@@ -61,26 +62,53 @@ class _AboutViewState extends State<AboutView> {
           CustomScrollView(
             slivers: [
               const SliverToBoxAdapter(child: SizedBox(height: 80)),
-              SliverToBoxAdapter(
-                child: Container(
-                  padding: const EdgeInsets.all(20),
-                  child: const Text(
-                    'About Us',
-                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+
+              SliverList(
+                delegate: SliverChildListDelegate(
+                  AnimationConfiguration.toStaggeredList(
+                    duration: const Duration(milliseconds: 500),
+                    childAnimationBuilder: (widget) => SlideAnimation(
+                      horizontalOffset: 50.0,
+                      child: FadeInAnimation(child: widget),
+                    ),
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: const Text(
+                          'About Us',
+                          style: TextStyle(
+                            fontSize: 32,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: SelectableText(
+                          '''NCSS Code Club is dedicated to fostering a passion for coding and technology among students. Our mission is to provide a supportive environment where young minds can explore, learn, and innovate in the field of computer science.''',
+                          style: const TextStyle(fontSize: 16, height: 1.4),
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: SelectableText(
+                          'We believe in empowering the next generation of tech enthusiasts by offering hands-on experiences, collaborative projects, and mentorship from industry professionals.',
+                          style: const TextStyle(fontSize: 16, height: 1.4),
+                        ),
+                      ),
+                      const SizedBox(height: 24),
+                    ],
                   ),
                 ),
               ),
-              SliverToBoxAdapter(
-                child: Container(
-                  padding: const EdgeInsets.all(20),
-                  child: const Text(
-                    'This is the About View of the application. Here you can include information about your app, its purpose, and any other relevant details you want to share with your users.',
-                    style: TextStyle(fontSize: 16),
-                  ),
-                ),
-              ),
+              // NOTE: SharedAppBar must NOT be placed directly inside a
+              // CustomScrollView.slivers list because it is a regular widget
+              // (not a sliver). It is added below as an overlay in the Stack.
             ],
           ),
+
+          // Shared app bar (overlay)
           SharedAppBar(
             isScrolled: _isScrolled,
             activePageIndex: _activePageIndex,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:ncss_code_club/components/typewriter.dart';
 import 'package:ncss_code_club/components/shared_app_bar.dart';
 import 'package:ncss_code_club/config/nav_items.dart';
@@ -108,7 +109,7 @@ class _HomeViewState extends State<HomeView> {
                                 Text(
                                   'Welcome to',
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
+                                  style: GoogleFonts.poppins(
                                     fontSize: isMobile
                                         ? 24
                                         : (isTablet ? 36 : 44),
@@ -124,7 +125,7 @@ class _HomeViewState extends State<HomeView> {
                                 Text(
                                   'Empowering the next generation of innovators',
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
+                                  style: GoogleFonts.poppins(
                                     fontSize: isMobile
                                         ? 13
                                         : (isTablet ? 16 : 18),
@@ -192,10 +193,10 @@ class _HomeViewState extends State<HomeView> {
             onNavTap: (index) {
               switch (index) {
                 case 0:
-                  context.go(AppRouter.home);
+                  context.pushReplacement(AppRouter.home);
                   break;
                 case 1:
-                  context.go(AppRouter.about);
+                  context.pushReplacement(AppRouter.about);
                   break;
                 case 2:
                   // Navigate to Projects

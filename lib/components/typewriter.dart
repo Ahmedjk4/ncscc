@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TypewriterText extends StatefulWidget {
   final List<String> texts;
@@ -89,7 +90,7 @@ class _TypewriterTextState extends State<TypewriterText> {
 
     return Text(
       _displayText,
-      style: TextStyle(
+      style: GoogleFonts.quicksand(
         fontSize: isMobile ? 28 : (isTablet ? 38 : 48),
         fontWeight: FontWeight.bold,
         color: Colors.amber[400]!,
