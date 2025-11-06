@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ncss_code_club/core/widgets/typewriter.dart';
 import 'package:ncss_code_club/core/widgets/shared_app_bar.dart';
 import 'package:ncss_code_club/core/utils/nav_items.dart';
-import 'package:ncss_code_club/core/utils/app_router.dart';
 import 'package:ncss_code_club/core/utils/app_theme.dart';
 
 class HomeView extends StatefulWidget {
@@ -53,10 +51,6 @@ class _HomeViewState extends State<HomeView> {
           ? SharedAppDrawer(
               navItems: navItemsList,
               activeIndex: _activePageIndex,
-              onTap: (index) {
-                setState(() => _activePageIndex = index);
-                Navigator.pop(context);
-              },
             )
           : null,
       body: Stack(
@@ -190,28 +184,6 @@ class _HomeViewState extends State<HomeView> {
             isScrolled: _isScrolled,
             activePageIndex: _activePageIndex,
             scaffoldKey: _scaffoldKey,
-            onNavTap: (index) {
-              switch (index) {
-                case 0:
-                  context.pushReplacement(AppRouter.home);
-                  break;
-                case 1:
-                  context.pushReplacement(AppRouter.about);
-                  break;
-                case 2:
-                  // Navigate to Projects
-                  break;
-                case 3:
-                  // Navigate to Events
-                  break;
-                case 4:
-                  // Navigate to Team
-                  break;
-                case 5:
-                  // Navigate to Contact
-                  break;
-              }
-            },
           ),
         ],
       ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ncss_code_club/core/utils/app_router.dart';
 import 'package:ncss_code_club/core/utils/nav_items.dart';
 import 'package:ncss_code_club/core/utils/app_theme.dart';
 
@@ -58,7 +60,7 @@ class SharedAppBar extends StatelessWidget {
               const Spacer(),
               // Nav items on larger screens
               if (!isMobile) ...[
-                if (isDesktop) ..._buildNavItems(isDesktop),
+                if (isDesktop) ..._buildNavItems(isDesktop, context),
                 if (isDesktop) const SizedBox(width: 32),
                 if (isDesktop)
                   _buildActionButton(
@@ -141,7 +143,7 @@ class SharedAppBar extends StatelessWidget {
     );
   }
 
-  List<Widget> _buildNavItems(bool isDesktop) {
+  List<Widget> _buildNavItems(bool isDesktop, BuildContext context) {
     return navItemsList.asMap().entries.map((entry) {
       final index = entry.key;
       final item = entry.value;
@@ -152,7 +154,28 @@ class SharedAppBar extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 6),
         child: InkWell(
           borderRadius: BorderRadius.circular(20),
-          onTap: () => onNavTap?.call(index),
+          onTap: () {
+            switch (index) {
+              case 0:
+                context.pushReplacement(AppRouter.home);
+                break;
+              case 1:
+                context.pushReplacement(AppRouter.about);
+                break;
+              case 2:
+                // Navigate to Projects
+                break;
+              case 3:
+                // Navigate to Events
+                break;
+              case 4:
+                // Navigate to Team
+                break;
+              case 5:
+                // Navigate to Contact
+                break;
+            }
+          },
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -235,13 +258,10 @@ class SharedAppBar extends StatelessWidget {
 class SharedAppDrawer extends StatelessWidget {
   final List<Map<String, dynamic>> navItems;
   final int activeIndex;
-  final ValueChanged<int> onTap;
-
   const SharedAppDrawer({
     super.key,
     required this.navItems,
     required this.activeIndex,
-    required this.onTap,
   });
 
   @override
@@ -367,7 +387,26 @@ class SharedAppDrawer extends StatelessWidget {
             ),
           ),
           onTap: () {
-            onTap(index);
+            switch (index) {
+              case 0:
+                context.pushReplacement(AppRouter.home);
+                break;
+              case 1:
+                context.pushReplacement(AppRouter.about);
+                break;
+              case 2:
+                // Navigate to Projects
+                break;
+              case 3:
+                // Navigate to Events
+                break;
+              case 4:
+                // Navigate to Team
+                break;
+              case 5:
+                // Navigate to Contact
+                break;
+            }
           },
         ),
       );

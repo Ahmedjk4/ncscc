@@ -51,10 +51,6 @@ class _AboutViewState extends State<AboutView> {
           ? SharedAppDrawer(
               navItems: navItemsList,
               activeIndex: _activePageIndex,
-              onTap: (index) {
-                setState(() => _activePageIndex = index);
-                Navigator.pop(context);
-              },
             )
           : null,
       body: Stack(
