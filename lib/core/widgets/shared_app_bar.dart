@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ncss_code_club/config/nav_items.dart';
-import 'package:ncss_code_club/utils/app_theme.dart';
+import 'package:ncss_code_club/core/utils/nav_items.dart';
+import 'package:ncss_code_club/core/utils/app_theme.dart';
 
 class SharedAppBar extends StatelessWidget {
   final bool isScrolled;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ncss_code_club/views/about_view.dart';
-import 'package:ncss_code_club/views/home_view.dart';
+import 'package:ncss_code_club/features/about/presentation/views/about_view.dart';
+import 'package:ncss_code_club/features/home/presentation/views/home_view.dart';
 
 class AppRouter {
   static const String home = '/';

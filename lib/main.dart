@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ncss_code_club/utils/app_router.dart';
-import 'package:ncss_code_club/utils/app_theme.dart';
+import 'package:ncss_code_club/core/utils/app_router.dart';
+import 'package:ncss_code_club/core/utils/app_theme.dart';
 
 void main() {
   runApp(const MyApp());
