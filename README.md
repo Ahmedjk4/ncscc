@@ -1,4 +1,4 @@
-# New Cairo STEM Club
+# New Cairo STEM Code Club
 
 Club Webiste, Stay Tuned !
 
