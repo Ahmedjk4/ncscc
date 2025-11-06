@@ -1,16 +1,9 @@
-# ncss_code_club
+# New Cairo STEM Club
 
-A new Flutter project.
+Club Webiste, Stay Tuned !
 
-## Getting Started
+<h2 align="center">Contributors</h2>
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+| <div align="center"> </div> | <div align="center"> </div> |
+|-------------|-------------|
+| <div align="center">[<img src="https://github.com/ahmedjk4.png" width="60px;" /><br /><sub><a href="https://github.com/ahmedjk4">ahmedjk4</a></sub>](https://github.com/ahmedjk4)</div> | <div align="center">[<img src="https://github.com/mohamed01089.png" width="60px;" /><br /><sub><a href="https://github.com/mohamed01089">mohamed01089</a></sub>](https://github.com/mohamed01089)</div> |
