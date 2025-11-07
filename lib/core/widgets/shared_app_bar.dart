@@ -73,10 +73,9 @@ class SharedAppBar extends StatelessWidget {
                 if (isDesktop)
                   _buildActionButton(
                     'Login',
-                    Colors.transparent,
                     Colors.white,
+                    AppTheme.primaryColor,
                     isMobile,
-                    outlined: true,
                   ),
               ],
               // Hamburger
