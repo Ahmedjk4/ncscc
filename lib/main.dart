@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'NCSCC',
       theme: AppTheme().themeData,
       routerConfig: AppRouter.router,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

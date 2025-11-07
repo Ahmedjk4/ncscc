@@ -17,6 +17,8 @@ class _AboutViewState extends State<AboutView> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   bool _isScrolled = false;
   final int _activePageIndex = 1;
+  bool _isHovered = false;
+  bool _isPressed = false; // Add this new state variable
 
   @override
   void initState() {
@@ -70,32 +72,110 @@ class _AboutViewState extends State<AboutView> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(20.0),
-                        child: const Text(
-                          'About Us',
-                          style: TextStyle(
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold,
+                        child: Center(
+                          // Added Center widget
+                          child: Text(
+                            'About NCSCC',
+                            style: TextStyle(
+                              fontSize: 32,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: SelectableText(
-                          '''NCSS Code Club is dedicated to fostering a passion for coding and technology among students. Our mission is to provide a supportive environment where young minds can explore, learn, and innovate in the field of computer science.''',
-                          style: const TextStyle(fontSize: 16, height: 1.4),
-                        ),
-                      ),
-                      const SizedBox(height: 12),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: SelectableText(
-                          '''"We believe hands-on experiences, collaborative projects." 
+                      Wrap(
+                        direction: isMobile ? Axis.vertical : Axis.horizontal,
+                        alignment: WrapAlignment.center,
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        children: [
+                          MouseRegion(
+                            onEnter: (_) => setState(() => _isHovered = true),
+                            onExit: (_) => setState(() => _isHovered = false),
+                            child: AnimatedContainer(
+                              duration: const Duration(milliseconds: 200),
+                              transform: Matrix4.identity()
+                                ..translate(
+                                  0,
+                                  (_isHovered || _isPressed) ? -10.0 : 0.0,
+                                ),
+                              width: isMobile ? screenWidth : screenWidth * 0.4,
+                              padding: const EdgeInsets.all(20.0),
+                              child: GestureDetector(
+                                onTapDown: (_) =>
+                                    setState(() => _isPressed = true),
+                                onTapUp: (_) =>
+                                    setState(() => _isPressed = false),
+                                onTapCancel: () =>
+                                    setState(() => _isPressed = false),
+                                child: Center(
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(
+                                      isMobile ? 20 : 16,
+                                    ),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(
+                                          isMobile ? 20 : 16,
+                                        ),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black.withOpacity(
+                                              0.2,
+                                            ),
+                                            blurRadius: 10,
+                                            spreadRadius: 2,
+                                          ),
+                                        ],
+                                      ),
+                                      child: Column(
+                                        children: [
+                                          Image.asset(
+                                            'assets/images/HelloWorld.jpg',
+                                            width: isMobile
+                                                ? screenWidth * 0.8
+                                                : 600,
+                                            height: isMobile
+                                                ? screenWidth * 0.8 * 0.5
+                                                : 300,
+                                            fit: BoxFit.cover,
+                                          ),
+                                          Text("Hello World!"),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: isMobile ? screenWidth : screenWidth * 0.5,
+                            padding: const EdgeInsets.all(20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SelectableText(
+                                  '''NCSS Code Club is an educative club founded in NCSS by Ahmed Mohammed, The club is dedicated to fostering a passion for coding and technology among students. Our mission is to provide a supportive environment where young minds can explore, learn, and innovate in the field of computer science.''',
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    height: 1.4,
+                                  ),
+                                ),
+                                const SizedBox(height: 12),
+                                SelectableText(
+                                  '''"We believe hands-on experiences, collaborative projects." 
                           
                           - Mohamed Hossam''',
-                          style: const TextStyle(fontSize: 16, height: 1.4),
-                        ),
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    height: 1.4,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(height: 24),
                     ],
                   ),
                 ),
