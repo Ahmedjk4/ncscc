@@ -16,7 +16,7 @@ class _AboutViewState extends State<AboutView> {
   final ScrollController _scrollController = ScrollController();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   bool _isScrolled = false;
-  int _activePageIndex = 1;
+  final int _activePageIndex = 1;
 
   @override
   void initState() {
@@ -89,7 +89,9 @@ class _AboutViewState extends State<AboutView> {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: SelectableText(
-                          'We believe in empowering the next generation of tech enthusiasts by offering hands-on experiences, collaborative projects, and mentorship from industry professionals.',
+                          '''"We believe hands-on experiences, collaborative projects." 
+                          
+                          - Mohamed Hossam''',
                           style: const TextStyle(fontSize: 16, height: 1.4),
                         ),
                       ),

@@ -16,7 +16,7 @@ class _HomeViewState extends State<HomeView> {
   final ScrollController _scrollController = ScrollController();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   bool _isScrolled = false;
-  int _activePageIndex = 0;
+  final int _activePageIndex = 0;
 
   @override
   void initState() {
